@@ -137,5 +137,6 @@ Lapisan repositori diuji menggunakan server HTTP tiruan yang mensimulasikan resp
 2. **file `jwt_generator.ps1`** berfungsi sebagai generator JWT secret key, sehingga pengguna tidak perlu memasukkan secara manual saat melakukan build aplikasi.
 
 ## Acknowledgments
-Evermos for providing the virtual internship opportunity
-emsifa.com for the Indonesia Regional API
+
+-Evermos for providing the virtual internship opportunity
+-emsifa.com for the Indonesia Regional API
