@@ -101,6 +101,14 @@ Proyek ini mencakup pengujian yang komprehensif:
 - **HTTP Request Files**: Pengujian API manual menggunakan `.http` files
 - **PowerShell Script**: Pengujian API otomatis menggunakan PowerShell
 
+<p align="center">
+  <img src="https://github.com/AtokTajuddin/internship_project/blob/d041b8ad8c3dcd95f9e2c1b13fe84621071b5114/6289293578911989888.jpg" alt="Testing Screenshot">
+</p>
+
+<p align="center">
+  Contoh inputting data ke dalam database via .http
+</p>
+
 ### Mock Testing
 
 Lapisan repositori diuji menggunakan server HTTP tiruan yang mensimulasikan respons dari API eksternal, untuk memastikan hasil pengujian yang andal dan dapat diprediksi.
