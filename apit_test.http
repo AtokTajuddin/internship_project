@@ -1,0 +1,115 @@
+// ...existing code...
+
+### Register additional user
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "full_name": "mamang",
+  "email": "mamang@example.com",
+  "phone": "085678912343",
+  "password": "mamang_p4ssw0rdnya_am4n"
+}
+### Login with new user
+# @name loginNewUser
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "mamang@example.com",
+  "password": "mamang_p4ssw0rdnya_am4n"
+}
+
+### Extract token from new user login
+@newUserAuthToken = {{loginNewUser.response.body.token}}
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "full_name": "mamang",
+  "email": "mamang@example.com",
+  "phone": "085678912343",
+  "password": "mamang_p4ssw0rdnya_am4n"
+}
+
+### Login to get token
+# @name login
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+ "email": "mamang@example.com",
+  "password": "mamang_p4ssw0rdnya_am4n"
+}
+
+### Extract token from login response
+@authToken = {{login.response.body.token}}
+
+### Create a basic product (Dengan store_id)
+POST http://localhost:8080/api/v1/products
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Basic Product",
+  "price": 19.99,
+  "stock": 100,
+  "category_id": 1,
+  "store_id": 1
+}
+
+### Create a product with all fields (termasuk store_id)
+POST http://localhost:8080/api/v1/products
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Complete Product",
+  "price": 99.99,
+  "stock": 50,
+  "category_id": 1,
+  "store_id": 1,
+  "description": "This is a complete product with all fields",
+  "brand_id": 1,
+  "image_url": "https://example.com/image.jpg"
+}
+
+### Get all products
+GET http://localhost:8080/api/v1/products
+
+### Get products with filters
+GET http://localhost:8080/api/v1/products?name=Product&min_price=10&max_price=100&category_id=1&page=1&limit=10
+
+### Get product by ID (replace 1 with an actual product ID)
+GET http://localhost:8080/api/v1/products/1
+
+### Update a product (replace 1 with an actual product ID)
+PUT http://localhost:8080/api/v1/products/1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Updated Product Name",
+  "price": 29.99,
+  "stock": 75,
+  "category_id": 1,
+  "store_id": 1,
+  "description": "This product has been updated"
+}
+
+### Delete a product (replace 1 with an actual product ID)
+DELETE http://localhost:8080/api/v1/products/1
+Authorization: Bearer {{authToken}}
+
+### Verify product fields
+POST http://localhost:8080/api/v1/products
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Entity-Compatible Product",
+  "price": 39.99,
+  "stock": 25,
+  "category_id": 1,
+  "store_id": 1
+}
