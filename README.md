@@ -138,5 +138,5 @@ Lapisan repositori diuji menggunakan server HTTP tiruan yang mensimulasikan resp
 
 ## Acknowledgments
 
--Evermos for providing the virtual internship opportunity
--emsifa.com for the Indonesia Regional API
+-**Evermos for providing the virtual internship opportunity**,
+-**emsifa.com for the Indonesia Regional API**
